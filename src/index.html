@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Electron tez demo</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <h1>Tez Demo Uygulaması</h1>
+    <p>
+      Video oynatma mantığını kavramak için yapılmıştır. Sadece 'neutral'
+      duyguları içeren videolar vardır.
+    </p>
+    <p class="badge text-bg-info">
+      Şuan Oynatılan Video Numarası
+      <span id="videoID">1</span>
+    </p>
+    <video height="360" width="640" id="videoPlayer" muted></video>
+    <button id="playButton" class="btn btn-primary">Oynat</button>
+    <button id="pauseButton" class="btn btn-primary">Duraklat</button>
+    <button id="nextButton" class="btn btn-primary">Sıradaki Video</button>
+    <button id="prevButton" class="btn btn-primary">Önceki Video</button>
+    <label for="selectVideo" class="form-label mt-2"
+      >Alttaki ayardan herhangi bir sıradaki videoyu seçip 'Oynat' tuşu ile
+      oynatabilirsiniz</label
+    >
+    <input
+      type="range"
+      class="form-range"
+      min="0"
+      max="10"
+      value="0"
+      id="selectVideo"
+    />
+    <button id="playVideoButton" class="btn btn-info">Oynat</button>
+    <script src="videoList.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
