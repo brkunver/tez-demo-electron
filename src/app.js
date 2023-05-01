@@ -1,72 +1,54 @@
-// DOM'dan elementleri koda çekme
-let videoPlayer = document.getElementById("videoPlayer")
-let playButton = document.getElementById("playButton")
-let pauseButton = document.getElementById("pauseButton")
-let nextButton = document.getElementById("nextButton")
-let prevButton = document.getElementById("prevButton")
-let videoIDText = document.getElementById("videoID")
-let playVideoButton = document.getElementById("playVideoButton")
-let selectVideoRange = document.getElementById("selectVideo")
+let videos = [...allVideos]
+let start = 0 //video sayaçı
 
-//ilk videoyu ayarlama
-let videoIndex = 0
-// alttaki seçim barının max değerini ayarlayan satır
-selectVideoRange.max = neutralVideos.length - 1
+playRandomButton.addEventListener("click", () => {
+  let turId = Number(videoType.options.selectedIndex)
+  let count = Number(videoCount.value)
 
-//ilk videoyu yerleştiren ve oynatan satır
-videoPlayer.src = neutralVideos[videoIndex]
-videoPlayer.play()
+  playRandomVideo(turId, count)
 
-//video bittiğinde çalışan fonksiyon ve ataması
-videoPlayer.addEventListener("ended", () => {
-  playNextVideo()
+  videoPlayer.addEventListener("ended", () => {
+    if (start < count) {
+      console.log(start, "video oynat")
+      playRandomVideo(turId)
+      start++
+    } else {
+      console.log("bitti")
+      videoPlayer.pause()
+    }
+  })
 })
 
-//videoyu oynatan fonksiyon ve ataması
-playButton.addEventListener("click", () => videoPlayer.play())
-
-//videoyu duraklatan fonksiyon ve ataması
-pauseButton.addEventListener("click", () => videoPlayer.pause())
-
-//sonraki videoyu oynatan fonksiyon ve ataması
-nextButton.addEventListener("click", () => {
-  playNextVideo()
-})
-
-//önceki videoyu oynatan fonksiyon
-prevButton.addEventListener("click", () => {
-  if (videoIndex == 0) {
-    videoIndex = neutralVideos.length - 1
-  } else {
-    videoIndex--
+function playRandomVideo(turId = 0, count = 0) {
+  let videoListCount = 0
+  switch (turId) {
+    case 0:
+      videoPlayer.src = videos.random()
+      videoListCount = videos.length
+      break
+    case 1:
+      videoPlayer.src = calmVideos.random()
+      videoListCount = calmVideos.length
+      break
+    case 2:
+      videoPlayer.src = angryVideos.random()
+      videoListCount = angryVideos.length
+      break
+    case 3:
+      videoPlayer.src = sadVideos.random()
+      videoListCount = sadVideos.length
+      break
+    default:
+      videoPlayer.src = videos.random()
+      videoListCount = videos.length
+      break
   }
-  setVideoIDText(videoIndex)
-  videoPlayer.src = neutralVideos[videoIndex]
-  videoPlayer.play()
-})
 
-//sıradaki videoyu oynayan fonksiyon
-function playNextVideo() {
-  if (videoIndex == neutralVideos.length - 1) {
-    videoIndex = 0
+  if (videoListCount < count) {
+    videoErrorCount.innerHTML = videoListCount.toString()
+    errorBox.hidden = false
   } else {
-    videoIndex++
+    errorBox.hidden = true
+    videoPlayer.play()
   }
-  setVideoIDText(videoIndex)
-  videoPlayer.src = neutralVideos[videoIndex]
-  videoPlayer.play()
 }
-
-// ekrandaki bilgilendirmeleri ayarlayan fonksiyon
-function setVideoIDText(id) {
-  videoIDText.innerHTML = (id + 1).toString()
-  selectVideoRange.value = id
-}
-
-// seçilen videoyu oynatan fonksiyon ve butona ataması
-playVideoButton.addEventListener("click", () => {
-  let id = selectVideoRange.value
-  videoPlayer.src = neutralVideos[id]
-  setVideoIDText(id)
-  videoPlayer.play()
-})

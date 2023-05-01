@@ -118,3 +118,18 @@ let tenderVideos = [
   "videos/ten08vp.mp4",
   "videos/ten09vp.mp4",
 ]
+
+// tüm videoların adreslerini tutan array
+let allVideos = [
+  ...neutralVideos,
+  ...amusementVideos,
+  ...angryVideos,
+  ...calmVideos,
+  ...cmpVideos,
+  ...disgustingVideos,
+  ...fearVideos,
+  ...horrorVideos,
+  ...horrorVideos,
+  ...sadVideos,
+  ...tenderVideos,
+]
