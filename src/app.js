@@ -1,5 +1,5 @@
 let videos = [...allVideos]
-let start = 0 //video sayaçı
+let start = 0 //video sayacı
 
 playRandomButton.addEventListener("click", () => {
   let turId = Number(videoType.options.selectedIndex)
@@ -37,6 +37,34 @@ function playRandomVideo(turId = 0, count = 0) {
     case 3:
       videoPlayer.src = sadVideos.random()
       videoListCount = sadVideos.length
+      break
+    case 4:
+      videoPlayer.src = neutralVideos.random()
+      videoListCount = neutralVideos.length
+      break
+    case 5:
+      videoPlayer.src = amusementVideos.random()
+      videoListCount = amusementVideos.length
+      break
+    case 6:
+      videoPlayer.src = cmpVideos.random()
+      videoListCount = cmpVideos.length
+      break
+    case 7:
+      videoPlayer.src = disgustingVideos.random()
+      videoListCount = disgustingVideos.length
+      break
+    case 8:
+      videoPlayer.src = fearVideos.random()
+      videoListCount = fearVideos.length
+      break
+    case 9:
+      videoPlayer.src = horrorVideos.random()
+      videoListCount = horrorVideos.length
+      break
+    case 10:
+      videoPlayer.src = tenderVideos.random()
+      videoListCount = tenderVideos.length
       break
     default:
       videoPlayer.src = videos.random()

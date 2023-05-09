@@ -10,59 +10,116 @@
     />
   </head>
   <body>
-    <h1>Tez Demo Uygulaması</h1>
-    <p>Duygu setinden videoları oynatmak için yapılmış tez uygulamasıdır</p>
-    <div class="alert alert-info">
-      <p>
-        <strong>Kullanımı : </strong> Lütfen aşağıdan öncelikle oynatılması
-        istenen video türünü seçiniz (rastgele, sakin), ardından kaç adet video
-        oynatılmasını istiyorsanız giriniz ve oynat butonuna basınız
-      </p>
-    </div>
-    <div hidden id="error-box" class="alert alert-danger">
-      <p>
-        <strong>Hata : </strong> Video sayından fazla değer giremezsiniz :
-        <strong id="video-sayisi-span"> 0 </strong>
-      </p>
-      <p>Lütfen bu değerden daha düşük veya eşit bir sayı giriniz</p>
-    </div>
-    <video height="360" width="640" id="videoPlayer" muted></video>
-    <button id="playButton" class="btn btn-primary">Oynat</button>
-    <button id="pauseButton" class="btn btn-primary">Duraklat</button>
-    <button id="volume-control" class="btn btn-primary">Sesi Aç</button>
+    <div class="container" style="width: 100vw">
+      <div class="row">
+        <div class="col">
+          <h1>Tez Demo Uygulaması</h1>
+          <p>
+            Duygu setinden videoları oynatmak için yapılmış tez uygulamasıdır
+          </p>
+          <div id="anket"></div>
+          <div class="alert alert-info">
+            <p>
+              <strong>Kullanımı : </strong> Lütfen aşağıdan öncelikle
+              oynatılması istenen video türünü seçiniz (rastgele, sakin),
+              ardından kaç adet video oynatılmasını istiyorsanız giriniz ve
+              oynat butonuna basınız
+            </p>
+          </div>
+          <div hidden id="error-box" class="alert alert-danger">
+            <p>
+              <strong>Hata : </strong> Video sayından fazla değer giremezsiniz :
+              <strong id="video-sayisi-span"> 0 </strong>
+            </p>
+            <p>Lütfen bu değerden daha düşük veya eşit bir sayı giriniz</p>
+          </div>
+          <video height="360" width="640" id="videoPlayer" muted></video>
+          <button id="playButton" class="btn btn-secondary">Oynat</button>
+          <button id="pauseButton" class="btn btn-secondary">Duraklat</button>
+          <button id="volume-control" class="btn btn-secondary">Sesi Aç</button>
 
-    <div>
-      <div class="mt-2">
-        <label for="select-video-type"
-          >lütfen aşağıdaki menüden bir video türü seçiniz</label
-        >
-        <select id="select-video-type" class="form-select w-50">
-          <option selected>Rastgele</option>
-          <option value="1">Sakin</option>
-          <option value="2">Kızgın</option>
-          <option value="3">Üzgün</option>
-        </select>
-      </div>
-      <div class="mt-2">
-        <label for="videoCount" class="form-label mt-2"
-          >Ardından oynatılması istenen rastgele video sayısını giriniz</label
-        >
-        <div class="input-group w-50">
+          <div>
+            <div class="mt-2">
+              <label for="select-video-type"
+                >lütfen aşağıdaki menüden bir video türü seçiniz</label
+              >
+              <select id="select-video-type" class="form-select w-50">
+                <option selected>Rastgele</option>
+                <option value="1">Sakin</option>
+                <option value="2">Kızgın</option>
+                <option value="3">Üzgün</option>
+                <option value="4">Nötr</option>
+                <option value="5">Eğlenceli</option>
+                <option value="6">?(cmpvideos)</option>
+                <option value="7">İğrenç</option>
+                <option value="8">Korku(fear)</option>
+                <option value="9">Korku(Horror)</option>
+                <option value="10">Hassas</option>
+              </select>
+            </div>
+            <div class="mt-2">
+              <label for="videoCount" class="form-label mt-2"
+                >Ardından oynatılması istenen rastgele video sayısını
+                giriniz</label
+              >
+              <div class="input-group w-50">
+                <input
+                  class="form-control"
+                  type="number"
+                  placeholder="5"
+                  value="5"
+                  name="adet"
+                  id="videoCount"
+                  max="20"
+                  min="1"
+                  step="1"
+                />
+                <button id="playRandomButton" class="btn btn-success">
+                  oynat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h2 class="text-center">Anket</h2>
+          <h3 class="mt-4">Anket sorusu 1</h3>
           <input
-            class="form-control"
-            type="number"
-            placeholder="5"
-            value="5"
-            name="adet"
-            id="videoCount"
-            max="20"
+            class="w-100 form-range"
+            type="range"
+            value="1"
+            name="cevap"
+            id="cevap"
+            max="5"
             min="1"
             step="1"
           />
-          <button id="playRandomButton" class="btn btn-primary">oynat</button>
+          <h3 class="mt-4">Anket sorusu 2</h3>
+          <input
+            class="w-100 form-range"
+            type="range"
+            value="1"
+            name="cevap"
+            id="cevap"
+            max="5"
+            min="1"
+            step="1"
+          />
+          <h3 class="mt-4">Anket sorusu 3</h3>
+          <input
+            class="w-100 form-range"
+            type="range"
+            value="1"
+            name="cevap"
+            id="cevap"
+            max="5"
+            min="1"
+            step="1"
+          />
         </div>
       </div>
     </div>
+
     <script src="videoList.js"></script>
     <script src="domElements.js"></script>
     <script src="videoControlButtons.js"></script>
