@@ -42,7 +42,7 @@ function kaydetButonunaTikla() {
   // Kaydetme dialogunu aç
   let link = document.createElement("a")
   link.href = URL.createObjectURL(dosya)
-  link.download = "dosya.txt"
+  link.download = "cevaplar.txt"
   link.style.display = "none"
   document.body.appendChild(link)
   link.click()
