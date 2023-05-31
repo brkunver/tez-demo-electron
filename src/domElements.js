@@ -14,3 +14,6 @@ let videoCount = document.getElementById("videoCount")
 let videoType = document.getElementById("select-video-type")
 let errorBox = document.getElementById("error-box")
 let videoErrorCount = document.getElementById("video-sayisi-span")
+let anketController = document.getElementById("anketController")
+let kaydetButton = document.getElementById("kaydetButonu")
+

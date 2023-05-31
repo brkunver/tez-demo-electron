@@ -129,7 +129,6 @@ let allVideos = [
   ...disgustingVideos,
   ...fearVideos,
   ...horrorVideos,
-  ...horrorVideos,
   ...sadVideos,
   ...tenderVideos,
 ]

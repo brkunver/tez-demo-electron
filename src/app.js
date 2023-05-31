@@ -3,7 +3,7 @@ let start = 0 //video sayacı
 
 playRandomButton.addEventListener("click", () => {
   let turId = Number(videoType.options.selectedIndex)
-  let count = Number(videoCount.value)
+  let count = 1
 
   playRandomVideo(turId, count)
 
